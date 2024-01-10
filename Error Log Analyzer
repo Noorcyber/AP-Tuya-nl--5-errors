@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Function to display the design
+display_design() {
+    cat << "EOF"
+ ___                          _                                                        
+  |         _.  / ._  |   __ |_     _  ._ ._ _  ._   |\ |  _   _  ._ _. |    _   _  ._ 
+  | |_| \/ (_| /  | | |       _)   (/_ |  | (_) |    | \| (_) (_) | (_| | \/ /_ (/_ |  
+        /                                                                 /            
+By Noor Shaheed, Datto, Kaseya. 01/10/2024
+Error Log Analyzer
+----------------------------
+EOF
+}
+
+# Function to analyze Tuya Devices error logs
+analyze_tuya_errors() {
+    echo "Analyzing Tuya Devices error logs..."
+    logread | grep -E "10:5a:17|10:d5:61|18:69:d8|1c:90:ff|38:1f:8d|50:8a:06|68:57:2d|70:89:76|7c:f6:66|84:e3:42|a0:92:08|cc:8c:bf|d4:a6:51|d8:1f:12|fc:67:1f"
+}
+
+# Function to analyze "nl_recvmsgs failed: -5" errors
+analyze_nl_recvmsgs_errors() {
+    echo "Analyzing 'nl_recvmsgs failed: -5' errors..."
+    grep -i "did not acknowledge authentication response\|wpa_driver_nl80211_event_receive->nl_recvmsgs failed -5" /var/log/messages*
+}
+
+# Main function
+main() {
+    display_design
+
+    # Run the functions
+    echo "-------------------------"
+    analyze_tuya_errors
+    echo "-------------------------"
+    analyze_nl_recvmsgs_errors
+}
+
+# Call the main function
+main
