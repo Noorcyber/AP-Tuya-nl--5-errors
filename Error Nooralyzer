@@ -3,7 +3,6 @@
 # Function to display the design
 display_design() {
     cat << "EOF"
-
   ______                           _   _                            _                        
  |  ____|                         | \ | |                          | |                       
  | |__    _ __  _ __  ___   _ __  |  \| |  ___    ___   _ __  __ _ | | _   _  ____ ___  _ __ 
@@ -27,6 +26,7 @@ analyze_tuya_errors() {
         echo "No Tuya devices detected."
     else
         echo "$tuya_logs"
+        echo "Link to PT 4270818"
     fi
 }
 
