@@ -33,7 +33,7 @@ analyze_tuya_errors() {
 # Function to analyze "nl_recvmsgs failed: -5" errors
 analyze_nl_recvmsgs_errors() {
     echo "Analyzing 'nl_recvmsgs failed: -5' errors..."
-    grep -i "did not acknowledge authentication response\|wpa_driver_nl80211_event_receive->nl_recvmsgs failed -5" /var/log/messages*;*
+    grep -i "did not acknowledge authentication response\|wpa_driver_nl80211_event_receive->nl_recvmsgs failed -5" /var/log/messages*;
 }
 
 # Main function
